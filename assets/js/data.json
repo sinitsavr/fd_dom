@@ -1,0 +1,25 @@
+"use strict";
+
+[ {
+  name: 'Earth',
+  age: undefined,
+  isRound: true,
+  isFlat: null,
+  satelite: 1,
+  ocean: ['pacific', 'atlntic','indian'],
+},
+{
+  name: 'Saturn',
+  age: undefined,
+  isRound: true,
+  isFlat: null,
+  satelite: 8,
+  ocean: [1],
+},
+]
+console.log(user)
+const serializeUser = JSON.stringify(user);
+console.log(serializeUser)
+
+const deserializeUser = JSON.parse(serializeUser)
+console.log(deserializeUser)
