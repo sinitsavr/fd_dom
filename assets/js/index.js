@@ -1,25 +1,33 @@
 "use strict";
 
-const user = {
-  name:"Elon",
-  age:51,
-  getName(){return this._name},
-  isWife: true,
-  children:['ch1','ch2'],
-  addres:{
-    country:'USA',
-    town:{
-      name:'NY',
-      ok:123
-    },
-  },
-  ukrPasport: null,
-  petty: undefined,
-  [Symbol('prop symbol')]: 'prop symbol',
+const myFirstPromise = new Promise(executor);
+function executor(resolve, reject){
+  Math.random()>0.5? resolve(12) : reject('error');
 }
-console.log(user)
-const serializeUser = JSON.stringify(user);
-console.log(serializeUser)
+//console.log(myFirstPromise)
+myFirstPromise
+.then((data)=>console.log('resolve:', data))
+.catch((error)=>console.log('rejext:', error))
 
-const deserializeUser = JSON.parse(serializeUser)
-console.log(deserializeUser)
+
+function timeout(ms){
+  return new Promise((resolve, reject)=>{
+    setTimeout(()=>{Math.random()>0.5? resolve(12) : reject(0)}, ms)
+  })
+}
+timeout(5000)
+  .then((d)=>console.log(d))
+  .catch((err)=>console.log(err))
+  .finally(()=>console.log(3))
+
+
+
+
+// fetch('./assets/js/data.json')
+//   .then((response)=>response.json())
+//   .then((data)=>{
+//     console.log(data.map((item)=>item.name).join(', '))
+    
+//   })
+//   .catch((error)=>console.log(error))
+//   .finally(()=>console.log('finally'))
