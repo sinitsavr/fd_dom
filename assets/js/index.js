@@ -1,33 +1,29 @@
 "use strict";
-
-const myFirstPromise = new Promise(executor);
-function executor(resolve, reject){
-  Math.random()>0.5? resolve(12) : reject('error');
+try{
+  const userInput = prompt()
+  if(isNaN(Number(userInput))){
+    throw new TypeError('must be number')
+  }
+}catch {
+  console.log('err')
+}finally{
+  console.log('info')
 }
-//console.log(myFirstPromise)
-myFirstPromise
-.then((data)=>console.log('resolve:', data))
-.catch((error)=>console.log('rejext:', error))
 
+//synchronous
+// try {} catch {}
+// try {} finally{}
+// try {} catch {} finally{}
 
-function timeout(ms){
-  return new Promise((resolve, reject)=>{
-    setTimeout(()=>{Math.random()>0.5? resolve(12) : reject(0)}, ms)
-  })
+console.log("start");
+try {
+  console.log("try1");
+  //throw new Error("error1");
+  console.log("try2");
+} catch {
+  console.log("catch error");
+} finally {
+  console.log("finally");
 }
-timeout(5000)
-  .then((d)=>console.log(d))
-  .catch((err)=>console.log(err))
-  .finally(()=>console.log(3))
 
-
-
-
-// fetch('./assets/js/data.json')
-//   .then((response)=>response.json())
-//   .then((data)=>{
-//     console.log(data.map((item)=>item.name).join(', '))
-    
-//   })
-//   .catch((error)=>console.log(error))
-//   .finally(()=>console.log('finally'))
+console.log("end");
